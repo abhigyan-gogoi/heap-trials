@@ -14,7 +14,7 @@ public class Heap<E extends Comparable<E>> {
     }
 
     public void add(E element) {
-        linkedList.add(element);
+        linkedList.addLast(element);
     }
 
     private void swap (int index1, int index2) {
@@ -153,7 +153,7 @@ public class Heap<E extends Comparable<E>> {
         linkedList = sortedList;
     }
 
-    public void getHeap() {
+    public void showHeap() {
         logger.debug("HEAP ARRAY: ");
         for (E element : linkedList) {
             System.out.print(element + ", ");

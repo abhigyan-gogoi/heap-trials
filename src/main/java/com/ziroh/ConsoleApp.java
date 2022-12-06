@@ -4,7 +4,9 @@ import com.ziroh.common.Heap;
 
 public class ConsoleApp {
     public static void main(String[] args) {
+        // Initialise heap
         Heap<Integer> heap = new Heap<>();
+        // Populate heap
         heap.add(4);
         heap.add(1);
         heap.add(3);
@@ -15,13 +17,16 @@ public class ConsoleApp {
         heap.add(14);
         heap.add(8);
         heap.add(7);
-
+        // Build max heap tree
         heap.buildMaxHeapTree();
-        heap.getHeap();
+        heap.showHeap();
+        // Sort the heap array
         heap.maxHeapSortAscending();
         heap.maxHeapSortDescending();
+        // Build min heap tree
         heap.buildMinHeapTree();
-        heap.getHeap();
+        heap.showHeap();
+        // Sort the heap array
         heap.minHeapSortDescending();
         heap.minHeapSortAscending();
     }
