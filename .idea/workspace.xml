@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df6bcc47-50e2-41b7-9384-1378d6255ab0" name="Changes" comment="Implemented Heap using generics;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ziroh/common/Heap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ziroh/ConsoleApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ziroh/ConsoleApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ziroh/HeapTree.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ziroh/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ziroh/common/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ziroh/common/Heap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ziroh/common/Heap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +70,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670226238190</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implemented Heap using generics;">
+      <created>1670310001712</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670310001712</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -93,16 +96,5 @@
     <MESSAGE value="Implemented Min and Max heap and sort for both;" />
     <MESSAGE value="Implemented Heap using generics;" />
     <option name="LAST_COMMIT_MESSAGE" value="Implemented Heap using generics;" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ziroh/common/Heap.java</url>
-          <line>158</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

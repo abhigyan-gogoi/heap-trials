@@ -4,59 +4,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
-import java.util.NoSuchElementException;
 
-public class Heap {
+public class Heap<E extends Comparable<E>> {
     private static final Logger logger = LoggerFactory.getLogger(Heap.class);
-    private LinkedList<Node> linkedList;
+    private LinkedList<E> linkedList;
 
     public Heap() {
         linkedList = new LinkedList<>();
     }
 
-//    public void add(T data) {
-//        Node<T> temp = new Node<>(data);
-//        linkedList.add(temp);
-//    }
-
-    public void add(Node node) {
-        linkedList.add(node);
-    }
-
-    public Node removeLast() {
-        Node temp = null;
-        try {
-            temp = linkedList.removeLast();
-        } catch (NoSuchElementException e) {
-            logger.debug(e.getMessage());
-        }
-        return temp;
-    }
-
-    public Node removeFirst() {
-        Node temp = null;
-        try {
-            temp = linkedList.removeFirst();
-        } catch (NoSuchElementException e) {
-            logger.debug(e.getMessage());
-        }
-        return temp;
-    }
-
-    public Node getParent() {
-        return linkedList.getFirst();
-    }
-
-    public Node getLast() {
-        return linkedList.getLast();
-    }
-
-    public Node get(int index) {
-        return linkedList.get(index);
+    public void add(E element) {
+        linkedList.add(element);
     }
 
     private void swap (int index1, int index2) {
-        Node temp = linkedList.get(index1);
+        E temp = linkedList.get(index1);
         linkedList.set(index1, linkedList.get(index2));
         linkedList.set(index2, temp);
     }
@@ -75,12 +37,12 @@ public class Heap {
         int left = getLeft(index);
         int right = getRight(index);
         int largest;
-        if (left < linkedList.size() && linkedList.get(left).getData().compareTo(linkedList.get(index).getData()) > 0) {
+        if (left < linkedList.size() && linkedList.get(left).compareTo(linkedList.get(index)) > 0) {
             largest = left;
         } else {
             largest = index;
         }
-        if (right < linkedList.size() && linkedList.get(right).getData().compareTo(linkedList.get(largest).getData()) > 0) {
+        if (right < linkedList.size() && linkedList.get(right).compareTo(linkedList.get(largest)) > 0) {
             largest = right;
         }
         if (largest != index) {
@@ -93,12 +55,12 @@ public class Heap {
         int left = getLeft(index);
         int right = getRight(index);
         int smallest;
-        if (left < linkedList.size() && linkedList.get(left).getData().compareTo(linkedList.get(index).getData()) < 0) {
+        if (left < linkedList.size() && linkedList.get(left).compareTo(linkedList.get(index)) < 0) {
             smallest = left;
         } else {
             smallest = index;
         }
-        if (right < linkedList.size() && linkedList.get(right).getData().compareTo(linkedList.get(smallest).getData()) < 0) {
+        if (right < linkedList.size() && linkedList.get(right).compareTo(linkedList.get(smallest)) < 0) {
             smallest = right;
         }
         if (smallest != index) {
@@ -122,7 +84,7 @@ public class Heap {
     public void maxHeapSortAscending() {
         buildMaxHeapTree();
         int size = linkedList.size() - 1;
-        LinkedList<Node> sortedList = new LinkedList<>();
+        LinkedList<E> sortedList = new LinkedList<>();
         while (size >= 0) {
             swap(0, size);
             sortedList.addFirst(linkedList.removeLast());
@@ -130,8 +92,8 @@ public class Heap {
             maxHeapify(0);
         }
         logger.debug("MAX HEAP ASCENDING SORTED LIST: ");
-        for (Node node : sortedList) {
-            System.out.print(node.getData() + ", ");
+        for (E element : sortedList) {
+            System.out.print(element + ", ");
         }
         System.out.println();
         linkedList = sortedList;
@@ -140,7 +102,7 @@ public class Heap {
     public void maxHeapSortDescending() {
         buildMaxHeapTree();
         int size = linkedList.size() - 1;
-        LinkedList<Node> sortedList = new LinkedList<>();
+        LinkedList<E> sortedList = new LinkedList<>();
         while (size >= 0) {
             swap(0, size);
             sortedList.addLast(linkedList.removeLast());
@@ -148,8 +110,8 @@ public class Heap {
             maxHeapify(0);
         }
         logger.debug("MAX HEAP DESCENDING SORTED LIST: ");
-        for (Node node : sortedList) {
-            System.out.print(node.getData() + ", ");
+        for (E element : sortedList) {
+            System.out.print(element + ", ");
         }
         System.out.println();
         linkedList = sortedList;
@@ -158,7 +120,7 @@ public class Heap {
     public void minHeapSortAscending() {
         buildMinHeapTree();
         int size = linkedList.size() - 1;
-        LinkedList<Node> sortedList = new LinkedList<>();
+        LinkedList<E> sortedList = new LinkedList<>();
         while (size >= 0) {
             swap(0, size);
             sortedList.addLast(linkedList.removeLast());
@@ -166,8 +128,8 @@ public class Heap {
             minHeapify(0);
         }
         logger.debug("MIN HEAP ASCENDING SORTED LIST: ");
-        for (Node node : sortedList) {
-            System.out.print(node.getData() + ", ");
+        for (E element : sortedList) {
+            System.out.print(element + ", ");
         }
         System.out.println();
         linkedList = sortedList;
@@ -176,7 +138,7 @@ public class Heap {
     public void minHeapSortDescending() {
         buildMinHeapTree();
         int size = linkedList.size() - 1;
-        LinkedList<Node> sortedList = new LinkedList<>();
+        LinkedList<E> sortedList = new LinkedList<>();
         while (size >= 0) {
             swap(0, size);
             sortedList.addFirst(linkedList.removeLast());
@@ -184,8 +146,8 @@ public class Heap {
             minHeapify(0);
         }
         logger.debug("MIN HEAP DESCENDING SORTED LIST: ");
-        for (Node node : sortedList) {
-            System.out.print(node.getData() + ", ");
+        for (E element : sortedList) {
+            System.out.print(element + ", ");
         }
         System.out.println();
         linkedList = sortedList;
@@ -193,8 +155,8 @@ public class Heap {
 
     public void getHeap() {
         logger.debug("HEAP ARRAY: ");
-        for (Node<?> node : linkedList) {
-            System.out.print(node.getData() + ", ");
+        for (E element : linkedList) {
+            System.out.print(element + ", ");
         }
         System.out.println();
         logger.debug("HEAP TREE: ");
@@ -204,7 +166,7 @@ public class Heap {
                 System.out.println();
                 level++;
             }
-            System.out.print(linkedList.get(i).getData() + " ");
+            System.out.print(linkedList.get(i) + " ");
         }
         System.out.println();
     }
