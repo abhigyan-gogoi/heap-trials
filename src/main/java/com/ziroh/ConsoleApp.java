@@ -1,17 +1,29 @@
 package com.ziroh;
 
-import java.util.Arrays;
-import java.util.LinkedList;
+import com.ziroh.common.Heap;
+import com.ziroh.common.Node;
 
 public class ConsoleApp {
     public static void main(String[] args) {
-        LinkedList<Integer> array = new LinkedList<>(Arrays.asList(4, 1, 3, 2, 16, 9, 10, 14, 8, 7));
-        HeapTree heapTree = new HeapTree(array);
-        heapTree.buildMaxHeapTree();
-        heapTree.getHeapTree();
-        heapTree.sortDescending();
-        heapTree.buildMinHeapTree();
-        heapTree.getHeapTree();
-        heapTree.sortAscending();
+        Heap heap = new Heap();
+        heap.add(new Node<>(4));
+        heap.add(new Node<>(1));
+        heap.add(new Node<>(3));
+        heap.add(new Node<>(2));
+        heap.add(new Node<>(16));
+        heap.add(new Node<>(9));
+        heap.add(new Node<>(10));
+        heap.add(new Node<>(14));
+        heap.add(new Node<>(8));
+        heap.add(new Node<>(7));
+
+        heap.buildMaxHeapTree();
+        heap.getHeap();
+        heap.maxHeapSortAscending();
+        heap.maxHeapSortDescending();
+        heap.buildMinHeapTree();
+        heap.getHeap();
+        heap.minHeapSortDescending();
+        heap.minHeapSortAscending();
     }
 }
